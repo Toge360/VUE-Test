@@ -3,9 +3,7 @@
     <li v-for="post of posts">
 
 <router-link :to="{ name: 'NewsDetail', params: { id: post.id }}">
-
-      <p><strong>{{post.news_title}}</strong></p>
-      <p>{{post.news_exerpt}}</p>
+ <p><strong>{{post.news_title}}</strong></p>
       </router-link>
     </li>
   </ul>

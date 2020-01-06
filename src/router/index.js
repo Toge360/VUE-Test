@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import HelloAxios from '@/components/HelloAxios'
 import HelloPage from '@/components/HelloPage'
+import News from '@/components/News'
 import NewsDetail from '@/components/NewsDetail'
 
 Vue.use(Router)
@@ -10,11 +11,11 @@ Vue.use(Router)
 export default new Router({
   routes: [{
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld,
+      name: 'News',
+      component: News,
       meta: {
         auth: true,
-        title: 'HelloWorld'
+        title: 'News'
       }
     },
     {

@@ -10,7 +10,7 @@
 <script>
 import HelloAxios from './HelloAxios'
 export default {
-  name: 'HelloWorld',
+  name: 'News',
   components: {
     HelloAxios
   },
