@@ -1,14 +1,14 @@
 <template>
-  <ul v-if="posts && posts.length">
-    <li v-for="post of posts">
 
-<router-link :to="{ name: 'NewsDetail', params: { id: post.id }}">
+<div >
+    <h1>{{posts.news_title}}</h1>
+    <img v-if="posts.news_img" v-bind:src="'https://www.fitmachen.com/files/'+posts.news_img" />
+    <p>{{posts.news_content}}</p>
+</div>
 
-      <p><strong>{{post.news_title}}</strong></p>
-      <p>{{post.news_exerpt}}</p>
-      </router-link>
-    </li>
-  </ul>
+
+
+
 </template>
 
 <script>
@@ -24,16 +24,21 @@ export default {
   // https://www.fitmachen.com/api_rest/companies/8/news
   // http://jsonplaceholder.typicode.com/posts
   created () {
-    axios.get('https://www.fitmachen.com/api_rest/companies/8/news')
+
+      console.log(this.$route.params.id);
+    axios.get('https://www.fitmachen.com/api_rest/companies/8/news/'+this.$route.params.id+'/')
       .then(response => {
         // JSON responses are automatically parsed.
         console.log(response);
-        this.posts = response.data.news
+        this.posts = response.data.news[0];
+        document.title = this.posts.news_title
       })
       .catch(e => {
         this.errors.push(e)
       })
-  }
+  },
+
+ 
 }
 </script>
 
