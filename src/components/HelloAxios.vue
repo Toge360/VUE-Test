@@ -1,8 +1,10 @@
 <template>
   <ul v-if="posts && posts.length">
     <li v-for="post of posts">
-      <p><strong>{{post.news_title}}</strong></p>
-      <p>{{post.news_content}}</p>
+
+<router-link :to="{ name: 'NewsDetail', params: { id: post.id }}">
+ <p><strong>{{post.news_title}}</strong></p>
+      </router-link>
     </li>
   </ul>
 </template>
